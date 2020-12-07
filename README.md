@@ -50,13 +50,13 @@
 ####  GET /api/estados** 
 
 ```json
-  [
-   {
-      "idEstado":1,
-      "nomeEstado":"Rio Grande do Sul",
-      "bandeira":"RG"
-   }
- ]
+	[
+	   {
+	      "idEstado":1,
+	      "nomeEstado":"Rio Grande do Sul",
+	      "bandeira":"RG"
+	   }
+	]
 
 
 
@@ -67,9 +67,9 @@
 ```json
 	[
 	   {
-		  "idEstado":1,
-		  "nomeEstado":"Rio Grande do Sul",
-		  "bandeira":"RG"
+	      "idEstado":1,
+	      "nomeEstado":"Rio Grande do Sul",
+	      "bandeira":"RG"
 	   }
 	]
 ```
@@ -80,34 +80,25 @@
 #### GET /api/cidades  
 
 ```json
-		[
-		   {
-			  "id":1,
-			  "nomeCidades":"Passo Fundo",
-			  "estados":{
-				 "idEstado":1,
-				 "nomeEstado":"Rio Grande do Sul",
-				 "bandeira":"RG"
-			  },
-			  "delegatee":null,
-			  "unwrappingSerializer":false
-		   }
-		]
+       [
+	  {
+	    "id":1,
+	    "nomeCidades":"Passo Fundo",
+	    "estados":{
+		 "idEstado":1,
+		 "nomeEstado":"Rio Grande do Sul",
+		 "bandeira":"RG"
+		  },
+	   "delegatee":null,
+	   "unwrappingSerializer":false
+	  }
+      ]
 ```
 ---
 ### **Inserir Cidade (Em andamento)
 ####  POST /api/Cidades/   
 
-> 
-```json
-  
-```
-
 ---
 ### **Deletar uma Cidade** (Em andamento)
 ####  DELETE /api/cidades/{nomeCidades}
 
-
-```json
-
-```
