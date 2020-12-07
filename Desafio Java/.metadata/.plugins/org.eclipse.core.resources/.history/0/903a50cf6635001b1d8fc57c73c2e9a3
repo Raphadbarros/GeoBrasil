@@ -1,0 +1,9 @@
+package com.desafiojava.mapearestado.repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.desafiojava.mapearestado.entidades.Cidades;
+
+public interface CidadesRepositori extends JpaRepository<Cidades, Integer>{
+
+}

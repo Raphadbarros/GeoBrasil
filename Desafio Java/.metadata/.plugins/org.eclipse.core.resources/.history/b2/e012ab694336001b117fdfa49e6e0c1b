@@ -1,0 +1,75 @@
+package com.desafiojava.mapearestado.services;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.desafiojava.mapearestado.entidades.Cidades;
+import com.desafiojava.mapearestado.entidades.Estados;
+import com.desafiojava.mapearestado.repositories.CidadesRepositori;
+
+import javassist.tools.rmi.ObjectNotFoundException;
+
+
+
+@Service
+public class CidadesServices {
+
+	@Autowired
+	public CidadesRepositori cidadesRepositori;
+
+	
+	public List<Cidades> listartodosCidades(int id) throws ObjectNotFoundException {
+		List<Cidades> obj = cidadesRepositori.findAll();
+		
+		for (Cidades valor : obj) {
+			String lista= valor.getEstados().toString();		
+			System.out.println(lista);
+			
+			if (valor.getEstados().equals(id)) {
+				System.out.println(valor+"Encontrei a letra B !");
+				break;
+			}
+		}
+		obj.stream().filter(i -> i.getEstados().equals(id));
+		return obj;
+//		System.out.println(obj);
+//		
+//		List<Cidades> result = new ArrayList<>();
+//		System.out.println(result);
+//
+//		for (Cidades valor : obj) {
+//			if (valor.getEstados().equals(id)) {
+//				System.out.println(valor+"Encontrei a letra B !");
+//				break;
+//			}
+//		}
+		
+		
+		//
+//		for(ClassOne one : listOne) {
+//		    for(ClassTwo two : listTwo) {
+//		        if(one.getId().equals(two.getId())) {
+//		            one.setScore(two.getmarks());
+//		            result.add(one);
+//		        }
+//		    }
+//		}
+	
+		
+		
+		/*	
+		List<Cidades> Listacidades = obj
+				  .stream()
+				  .filter(c -> c.getEstados() == estado )
+			  .collect(Collectors.toList());
+		*/
+		
+	
+	}
+	
+	
+	
+}

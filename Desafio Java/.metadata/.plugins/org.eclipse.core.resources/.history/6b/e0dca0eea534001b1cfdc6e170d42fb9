@@ -1,0 +1,58 @@
+package com.desafiojava.mapearestado.entidades;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+import javax.persistence.*;
+
+import org.springframework.data.annotation.Id;
+
+
+@Entity
+@Table(name="Estados")
+public class Estados implements Serializable  {
+
+
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column
+	private Integer idCidade; 
+	
+	private String nomeCidade;
+
+	public Integer getIdCidade() {
+		return idCidade;
+	}
+
+
+	public void setIdCidade(Integer idCidade) {
+		this.idCidade = idCidade;
+	}
+
+	public String getNomeCidade() {
+		return nomeCidade;
+	}
+
+	public void setNomeCidade(String nomeCidade) {
+		this.nomeCidade = nomeCidade;
+	}
+	
+
+	@Override
+	public String toString() {
+		return "Estados [idCidade=" + idCidade + ", nomeCidade=" + nomeCidade + "]";
+	}
+	
+	
+	
+}

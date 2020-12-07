@@ -1,0 +1,11 @@
+package com.desafiojava.mapearestado.services;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class EstadosServices {
+	
+		private EstadoRepositori estadoRepositori;
+
+	
+}

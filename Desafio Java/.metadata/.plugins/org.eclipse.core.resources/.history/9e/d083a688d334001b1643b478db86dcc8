@@ -1,0 +1,13 @@
+package com.desafiojava.mapearestados;
+
+import org.junit.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class MapearEstadosApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}

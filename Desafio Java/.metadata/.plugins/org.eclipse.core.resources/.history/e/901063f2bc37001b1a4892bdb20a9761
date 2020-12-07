@@ -1,0 +1,63 @@
+package com.desafiojava.mapearestado.services;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.desafiojava.mapearestado.entidades.Cidades;
+import com.desafiojava.mapearestado.entidades.Estados;
+import com.desafiojava.mapearestado.repositories.CidadesRepositori;
+
+import javassist.tools.rmi.ObjectNotFoundException;
+
+@Service
+public class CidadesServices {
+
+	@Autowired
+	public CidadesRepositori cidadesRepositori;
+	
+	
+	@Autowired
+	public EstadosServices estadoServices;  
+
+	public List<Cidades> listartodosCidades(int id) throws ObjectNotFoundException {
+		List<Cidades> obj = cidadesRepositori.findAll();
+		List<Cidades> cidades = new ArrayList<>();
+
+		for (Cidades valor : obj) {
+
+			if (valor.getEstados().getidEstado().equals(id)) {
+				cidades.add(valor);
+			}
+		}
+		return cidades;
+
+	}
+	
+	public Cidades insert(Cidades obj) {
+		objEtado(obj);
+		return cidadesRepositori.save(obj);
+	}
+
+	public Cidades objEtado(Cidades obj)
+	{
+		int idEstado = obj.getEstados().getidEstado();
+		Estados estados = estadoServices.buscarEstadosId(idEstado);
+		String nomeCidade = obj.getnomeCidades();
+		List<Cidades> cidades = 
+		
+		
+				
+		if()
+		
+		return idEstado;
+	}
+
+	
+	public List<Cidades> buscarCidades(){
+		List<Cidades> obj = cidadesRepositori.findAll();
+		return obj;
+	}
+}

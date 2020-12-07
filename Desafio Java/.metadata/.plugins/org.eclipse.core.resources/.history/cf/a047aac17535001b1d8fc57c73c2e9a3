@@ -1,0 +1,91 @@
+package com.desafiojava.mapearestado.entidades;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "estados")
+public class Estados implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer idCidade;
+
+	private String nomeCidade;
+
+	private String Bandeira;
+
+	@OneToMany(mappedBy = "estado")
+	private List<Cidades> cidades = new ArrayList<>();
+
+	public Estados() {
+
+	}
+
+	public Estados(Integer idCidade, String nomeCidade, String bandeira) {
+		super();
+		this.idCidade = idCidade;
+		this.nomeCidade = nomeCidade;
+		Bandeira = bandeira;
+	}
+
+	public String getBandeira() {
+		return Bandeira;
+	}
+
+	public void setBandeira(String bandeira) {
+		Bandeira = bandeira;
+	}
+
+	public Integer getIdCidade() {
+		return idCidade;
+	}
+
+	public void setIdCidade(Integer idCidade) {
+		this.idCidade = idCidade;
+	}
+
+	public String getNomeCidade() {
+		return nomeCidade;
+	}
+
+	public void setNomeCidade(String nomeCidade) {
+		this.nomeCidade = nomeCidade;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((idCidade == null) ? 0 : idCidade.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Estados other = (Estados) obj;
+		if (idCidade == null) {
+			if (other.idCidade != null)
+				return false;
+		} else if (!idCidade.equals(other.idCidade))
+			return false;
+		return true;
+	}
+
+}

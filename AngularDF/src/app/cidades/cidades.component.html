@@ -1,0 +1,41 @@
+
+  <div class="container">
+    <div class="Cidades">
+      <h5 class="card-header">Lista de carros</h5>
+      <div class="card-body">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">NomeCidades</th>
+                <th scope="col">Nome Estado</th>
+                <th scope="col">População</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cidades of cidades">
+                <td>{{cidades.nomeCidades}}</td>
+                <td>{{cidades.nomeEstado}}</td>
+                  <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteCar(cidades)">Deletar</button>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+
+
+      <h3>Adicionar Cidade</h3>
+    <div>
+    <form  [formGroup]="CidadeForm" (ngSubmit)="addCidade(CidadeForm.value)">
+        <input matInput name="nomeCidades" formControlName="nomeCidades">
+      <button type="submit" >Adicionar</button>
+    </form>
+  </div>
+  </div>
+
+ 
+ 
+
+  
+
+
+

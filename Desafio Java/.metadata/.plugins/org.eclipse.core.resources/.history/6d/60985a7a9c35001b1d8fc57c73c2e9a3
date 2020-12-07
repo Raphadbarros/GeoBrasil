@@ -1,0 +1,46 @@
+package com.desafiojava.mapearestado.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.desafiojava.mapearestado.entidades.Cidades;
+import com.desafiojava.mapearestado.services.CidadesServices;
+
+import javassist.tools.rmi.ObjectNotFoundException;
+
+@Controller
+@RequestMapping("/api")
+@CrossOrigin(origins = "*")
+public class MapearCidadesController {
+
+	
+
+	@Autowired
+	private CidadesServices cidadesServ;
+	
+	@RequestMapping(value = "/c", method = RequestMethod.GET)
+	public String li() {
+	return "estes";
+	}
+//	
+//	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+//	public ResponseEntity<?> cidadesid(@PathVariable String estado) throws ObjectNotFoundException {
+//		Estados obj = estadosServ.buscarCidadesId(estado);
+//		return ResponseEntity.ok().body(obj);
+//	}
+	
+	@RequestMapping(value = "/cidades/{estado}/{id}", method = RequestMethod.GET)
+	public ResponseEntity<?> listartodosEstados(@PathVariable String estado,@PathVariable int id) throws ObjectNotFoundException {
+		Optional<Cidades> obj = cidadesServ.listartodosCidades(estado,id);
+		return ResponseEntity.ok().body(obj);
+	}
+	
+}
